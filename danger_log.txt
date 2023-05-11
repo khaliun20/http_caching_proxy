@@ -1,0 +1,71 @@
+Xinmeng Chen, Khaliun Munkhuu 
+Danger Log: 
+
+2/27: 
+
+●	While establishing a socket connection with a client or the server, there are a number of places where errors could occur such as 
+    during socket creation and accepting socket connection requests, we catch these errors in each step of the connection building 
+    process to guarantee strong exception safety. 
+
+●	We checked if the boost::beast library is able to identify errors related to malformed requests and responses. Attackers could 
+    send malformed headers that can cause information leak, buffer overflow, and unwanted code processing. Our library works as 
+    expected and is able to reject malformed requests and corrupted and send appropriate error messages to the client. 
+
+●	To further improve our proxy, we could set a limit of the number of bytes we can accept. Currently we have a timer where if data 
+    is not being received for a specific period of time, we stop receiving. However, this doesn’t protect us from attackers who send 
+    extremely large data to cause memory issues on our proxy server’s end. 
+
+●	For GET and POST connections, as soon as proxy has finished its job serving a client by sending, retrieving from cache or 
+    receiving from server, we make sure to close the sockets to prevent potential attacks before exiting the thread and releases 
+    resources to improve resource management, and to prevent the proxy itself from sending/receiving data to and from wrong parties.
+
+●	Fo efficient resource management and synchronization, we make use of the mutex read and write locks to ensure that only one 
+    thread is writing to the cache but multiple thread are reading from it
+
+
+2/26:
+●	To ensure that we receive all data from the server we first receive the header in a specified size of buffer to decode the type 
+    of messages (chunked vs. all in one). Once the message type is identified, we clear the buffer and run another set of while loops 
+    for each type. We get out of the while loop when total received data equals the content length or all the chunk has been received.  
+    We also take into consideration that the receive function could fail setting errno to -1. In these cases, We throw and catch 
+    exceptions for strong exception guarantees. 
+
+●	We updated the revalidation process. We followed the http protocols to identify if data can be cached and if allowed how long data 
+    can stay “fresh”/ OK to send to the client. For any data that needs revalidation we successfully communicate with the server 
+    before sending it to the client and adding to our cache.
+
+●	Added read/write locks to the cache and proxy log.
+
+2/25:
+●	Built a basic cache class. Need to implement the revalidation and make the proxy access the cache class.
+
+
+2/24: 
+●	Instead of using one large buffer to receive data from the server, we now have a while loop; however, we need to update our design 
+to receive the header first and parse to see if the message received is chunked and handle them separately.
+
+●	We have an infinite loop without a break statement when creating a multi thread using std::thread. Handle the exceptions that 
+might get thrown.
+
+●	CONNECT fails to work. We think it could be caused by our current synchronization design. Look into the std::thread function.
+
+
+2/21: 
+
+●	In places where exceptions could be thrown, we currently added either std::cerr or break. Make sure to update these to throw 
+    exceptions.
+
+●	When a proxy sends a request header to the server, our design currently doesn’t check if all bytes have been sent or received.
+
+●	Clients may send malformed requests if they are using a poorly designed web server. We make use of the boost http parser library 
+    to handle errors but we need to check if the parser is correctly parsing and sending error messages. We should handle exceptions. 
+
+●	Reply with 502 error code for corrupted response and 400 code for malformed request
+
+●	We are setting the client-to-proxy receiving buffer to a specific large number, however this could lead to buffer overflow if a 
+    hacker/user sends a large amount of data with POST method.
+
+●	Make sure to close the socket connections when exception occurs
+
+●	Check for cases where any of the file descriptor #s are less than 0
+

@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  myproxy:
+    build: ./src
+    tty: true
+    command: bash -c "./run.sh"
+    volumes:
+      - ./src:/code
+      - ./logs:/var/log/erss
+    ports:
+      - "12345:12345"

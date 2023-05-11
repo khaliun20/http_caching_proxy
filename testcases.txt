@@ -1,0 +1,508 @@
+**************************** GET Method Tests:*************************
+
+1. Works normally
+
+GET http://www.alice.org/ HTTP/1.1
+Host: www.alice.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Cookie: PHPSESSID=34uqnfq249bgkdoqjieptfd3q3
+Upgrade-Insecure-Requests: 1
+
+0: GET http://www.alice.org/ HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:15:16 2023
+0: not in cache
+0: Requesting GET http://www.alice.org/ HTTP/1.1 from www.alice.org
+0: Received HTTP/1.1 301 Moved Permanently from www.alice.org
+0: Responding HTTP/1.1 301 Moved Permanently
+
+2. Works normally
+
+GET http://www.360doc.com/index.html HTTP/1.1
+Host: www.360doc.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Cookie: __snaker__id=aSBMGJDowNP4gwLw
+Upgrade-Insecure-Requests: 1
+
+0: GET http://detectportal.firefox.com/canonical.html HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:11:11 2023
+0: not in cache
+0: Requesting GET http://detectportal.firefox.com/canonical.html HTTP/1.1 from detectportal.firefox.com
+0: Received HTTP/1.1 200 OK from detectportal.firefox.com
+0: Responding HTTP/1.1 200 OK
+0: cached, but requires re-validation
+1: GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:11:11 2023
+1: not in cache
+1: Requesting GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1 from detectportal.firefox.com
+1: Received HTTP/1.1 200 OK from detectportal.firefox.com
+1: Responding HTTP/1.1 200 OK
+1: cached, but requires re-validation
+2: GET http://www.360doc.com/index.html HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 03:11:23 2023
+2: not in cache
+2: Requesting GET http://www.360doc.com/index.html HTTP/1.1 from www.360doc.com
+2: Received HTTP/1.1 200 OK from www.360doc.com
+2: Responding HTTP/1.1 200 OK
+2: cached, expires at Tue Feb 28 03:21:23 2023
+3: GET http://detectportal.firefox.com/canonical.html HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:11:55 2023
+3: in cache, requires validation
+3: Requesting GET http://detectportal.firefox.com/canonical.html HTTP/1.1 from detectportal.firefox.com
+3: Received HTTP/1.1 200 OK from detectportal.firefox.com
+3: cached, but requires re-validation
+3: Responding HTTP/1.1 200 OK
+4: GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:11:55 2023
+4: in cache, requires validation
+4: Requesting GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1 from detectportal.firefox.com
+4: Received HTTP/1.1 200 OK from detectportal.firefox.com
+4: cached, but requires re-validation
+4: Responding HTTP/1.1 200 OK
+
+3. Works normally
+
+GET http://www.fifa.com/ HTTP/1.1
+Host: www.fifa.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+0: GET http://www.fifa.com/ HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:37:50 2023
+0: not in cache
+0: Requesting GET http://www.fifa.com/ HTTP/1.1 from www.fifa.com
+0: Received HTTP/1.1 301 Moved Permanently from www.fifa.com
+0: Responding HTTP/1.1 301 Moved Permanently
+1: CONNECT spocs.getpocket.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 02:38:38 2023
+1: Responding "HTTP/1.1 200 OK"
+2: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 02:38:39 2023
+2: Responding "HTTP/1.1 200 OK"
+
+4. Works normally
+
+GET http://www.cardpostage.com/elof12.htm HTTP/1.1
+Host: www.cardpostage.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+0: GET http://www.cardpostage.com/elof12.htm HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 03:45:03 2023
+0: not in cache
+0: Requesting GET http://www.cardpostage.com/elof12.htm HTTP/1.1 from www.cardpostage.com
+0: Received HTTP/1.1 200 OK from www.cardpostage.com
+0: Responding HTTP/1.1 200 OK
+0: cached
+
+5. Works normally (checks cache):
+
+1: GET http://www.cardpostage.com/elof12.htm HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+1: in cache, valid
+3: GET http://s10.histats.com/js9.js HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+3: not in cache
+2: GET http://www.cardpostage.com/postcard.css HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+2: not in cache
+4: GET http://pagead2.googlesyndication.com/pagead/show_ads.js HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+4: not in cache
+1: Responding HTTP/1.1 200 OK
+4: Requesting GET http://pagead2.googlesyndication.com/pagead/show_ads.js HTTP/1.1 from pagead2.googlesyndication.com
+4: Received HTTP/1.1 200 OK from pagead2.googlesyndication.com
+4: Responding HTTP/1.1 200 OK
+4: not cacheable because private
+2: Requesting GET http://www.cardpostage.com/postcard.css HTTP/1.1 from www.cardpostage.com
+3: Requesting GET http://s10.histats.com/js9.js HTTP/1.1 from s10.histats.com
+3: Received HTTP/1.1 200 OK from s10.histats.com
+3: Responding HTTP/1.1 200 OK
+3: cached
+2: Received HTTP/1.1 200 OK from www.cardpostage.com
+2: Responding HTTP/1.1 200 OK
+2: cached
+6: GET http://www.cardpostage.com/0.gif HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+5: GET http://www.cardpostage.com/images/titologrande.gif HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+6: not in cache
+5: not in cache
+7: GET http://www.cardpostage.com/mappa-pianeta.gif HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:19 2023
+7: not in cache
+7: Requesting GET http://www.cardpostage.com/mappa-pianeta.gif HTTP/1.1 from www.cardpostage.com
+5: Requesting GET http://www.cardpostage.com/images/titologrande.gif HTTP/1.1 from www.cardpostage.com
+6: Requesting GET http://www.cardpostage.com/0.gif HTTP/1.1 from www.cardpostage.com
+6: Received HTTP/1.1 200 OK from www.cardpostage.com
+6: Responding HTTP/1.1 200 OK
+6: cached
+5: Received HTTP/1.1 200 OK from www.cardpostage.com
+5: Responding HTTP/1.1 200 OK
+5: cached
+7: Received HTTP/1.1 200 OK from www.cardpostage.com
+7: Responding HTTP/1.1 200 OK
+7: cached
+8: GET http://www.cardpostage.com/favicon.ico HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+8: not in cache
+10: CONNECT s4.histats.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+9: CONNECT pagead2.googlesyndication.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+9: Responding "HTTP/1.1 200 OK"
+10: Responding "HTTP/1.1 200 OK"
+8: Requesting GET http://www.cardpostage.com/favicon.ico HTTP/1.1 from www.cardpostage.com
+8: Received HTTP/1.1 404 Not Found from www.cardpostage.com
+8: Responding HTTP/1.1 404 Not Found
+11: POST http://r3.o.lencr.org/ HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+11: Requesting POST http://r3.o.lencr.org/ HTTP/1.1 from r3.o.lencr.org
+11: Received HTTP/1.1 200 OK from r3.o.lencr.org
+11: Responding HTTP/1.1 200 OK
+10: Tunnel closed
+12: GET http://e.dtscout.com/e/?v=1a&pid=5200&site=1&l=http%3A%2F%2Fwww.cardpostage.com%2Felof12.htm&j= HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+12: not in cache
+12: Requesting GET http://e.dtscout.com/e/?v=1a&pid=5200&site=1&l=http%3A%2F%2Fwww.cardpostage.com%2Felof12.htm&j= HTTP/1.1 from e.dtscout.com
+13: CONNECT adservice.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:20 2023
+13: Responding "HTTP/1.1 200 OK"
+12: Received HTTP/1.1 200 OK from e.dtscout.com
+12: Responding HTTP/1.1 200 OK
+12: cached, but requires re-validation
+14: CONNECT partner.googleadservices.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:21 2023
+15: CONNECT s10.histats.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:21 2023
+14: Responding "HTTP/1.1 200 OK"
+15: Responding "HTTP/1.1 200 OK"
+16: CONNECT googleads.g.doubleclick.net:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:21 2023
+16: Responding "HTTP/1.1 200 OK"
+17: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:21 2023
+17: Requesting POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from ocsp.pki.goog
+17: Received HTTP/1.1 200 OK from ocsp.pki.goog
+17: Responding HTTP/1.1 200 OK
+18: CONNECT tpc.googlesyndication.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:22 2023
+19: CONNECT www.googletagservices.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:22 2023
+18: Responding "HTTP/1.1 200 OK"
+19: Responding "HTTP/1.1 200 OK"
+20: CONNECT www.googletagservices.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:22 2023
+20: Responding "HTTP/1.1 200 OK"
+20: Tunnel closed
+21: CONNECT p4-gz7ff5pe7cme2-ocupqvif2aqwcw7a-if-v6exp3-v4.metric.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:22 2023
+21: Responding "HTTP/1.1 200 OK"
+22: CONNECT www.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:22 2023
+22: Responding "HTTP/1.1 200 OK"
+23: CONNECT fonts.googleapis.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:25 2023
+24: CONNECT www.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:25 2023
+25: CONNECT safebrowsing.googleapis.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:25 2023
+24: Responding "HTTP/1.1 200 OK"
+23: Responding "HTTP/1.1 200 OK"
+25: Responding "HTTP/1.1 200 OK"
+25: Tunnel closed
+26: CONNECT fonts.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:25 2023
+26: Responding "HTTP/1.1 200 OK"
+15: Tunnel closed
+27: CONNECT p4-gz7ff5pe7cme2-ocupqvif2aqwcw7a-517671-i1-v6exp3.v4.metric.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:32 2023
+28: CONNECT p4-gz7ff5pe7cme2-ocupqvif2aqwcw7a-517671-i2-v6exp3.ds.metric.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:32 2023
+27: Responding "HTTP/1.1 200 OK"
+28: Responding "HTTP/1.1 200 OK"
+29: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:33 2023
+30: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:46:33 2023
+30: Requesting POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from ocsp.pki.goog
+29: Requesting POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from ocsp.pki.goog
+30: Received HTTP/1.1 200 OK from ocsp.pki.goog
+30: Responding HTTP/1.1 200 OK
+29: Received HTTP/1.1 200 OK from ocsp.pki.goog
+29: Responding HTTP/1.1 200 OK
+31: CONNECT p4-gz7ff5pe7cme2-ocupqvif2aqwcw7a-517671-s1-v6exp3-v4.metric.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:47:02 2023
+31: Responding "HTTP/1.1 200 OK"
+32: CONNECT s4.histats.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:47:05 2023
+32: Responding "HTTP/1.1 200 OK"
+32: Tunnel closed
+33: GET http://e.dtscout.com/e/?v=1a&pid=5200&site=1&l=http%3A%2F%2Fwww.cardpostage.com%2Felof12.htm&j= HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:47:05 2023
+33: in cache, requires validation
+33: Requesting GET http://e.dtscout.com/e/?v=1a&pid=5200&site=1&l=http%3A%2F%2Fwww.cardpostage.com%2Felof12.htm&j= HTTP/1.1 from e.dtscout.com
+33: Received HTTP/1.1 200 OK from e.dtscout.com
+33: cached, but requires re-validation
+33: Responding HTTP/1.1 200 OK
+
+**************************** Test for max-age (max-age is 0): ******** 
+
+1. Works normally
+
+GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1
+Host: www.artsci.utoronto.ca
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+0: GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 03:51:07 2023
+0: not in cache
+0: Requesting GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1 from www.artsci.utoronto.ca
+0: Received HTTP/1.1 301 Moved Permanently from www.artsci.utoronto.ca
+0: Responding HTTP/1.1 301 Moved Permanently
+
+2. Works normally (removed some CONNECT lines from the end. Shows that it is not cached)
+
+GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1
+Host: www.artsci.utoronto.ca
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+1: GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:13 2023
+1: not in cache
+1: Requesting GET http://www.artsci.utoronto.ca/futurestudents HTTP/1.1 from www.artsci.utoronto.ca
+1: Received HTTP/1.1 301 Moved Permanently from www.artsci.utoronto.ca
+1: Responding HTTP/1.1 301 Moved Permanently
+2: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:13 2023
+2: Responding "HTTP/1.1 200 OK"
+3: POST http://ocsp.sectigo.com/ HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:14 2023
+3: Requesting POST http://ocsp.sectigo.com/ HTTP/1.1 from ocsp.sectigo.com
+3: Received HTTP/1.1 200 OK from ocsp.sectigo.com
+3: Responding HTTP/1.1 200 OK
+4: CONNECT www.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+9: CONNECT maxcdn.bootstrapcdn.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+5: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+10: CONNECT code.jquery.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+8: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+7: CONNECT cdn.datatables.net:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+6: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+13: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+14: CONNECT cdn.datatables.net:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+11: CONNECT www.artsci.utoronto.ca:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+12: CONNECT fonts.googleapis.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:52:15 2023
+4: Responding "HTTP/1.1 200 OK"
+12: Responding "HTTP/1.1 200 OK"
+
+
+**************************** CHUNKED Tests:****************************
+
+1. Works normally
+
+GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1
+Host: www.httpwatch.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Cookie: _ga=GA1.2.970003659.1677381325
+Upgrade-Insecure-Requests: 1
+
+0: GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:10:54 2023
+0: not in cache
+0: Requesting GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1 from www.httpwatch.com
+0: Received HTTP/1.1 200 OK from www.httpwatch.com
+0: Responding HTTP/1.1 200 OK
+0: not cacheable because no-store
+
+**************************** POST Method Tests:*************************
+
+1. Works normally
+
+GET http://httpbin.org/forms/post HTTP/1.1
+Host: httpbin.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+0: GET http://httpbin.org/forms/post HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:08:08 2023
+0: not in cache
+0: Requesting GET http://httpbin.org/forms/post HTTP/1.1 from httpbin.org
+0: Received HTTP/1.1 200 OK from httpbin.org
+0: Responding HTTP/1.1 200 OK
+0: cached
+1: GET http://httpbin.org/forms/post HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 02:08:28 2023
+1: in cache, valid
+1: Responding HTTP/1.1 200 OK
+2: POST http://httpbin.org/post HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 02:08:36 2023
+2: Requesting POST http://httpbin.org/post HTTP/1.1 from httpbin.org
+2: Received HTTP/1.1 200 OK from httpbin.org
+2: Responding HTTP/1.1 200 OK
+
+**************************** CONNECT Tests:****************************
+1. Works normally
+
+CONNECT www.espn.com:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.espn.com:443
+
+(didn't include all because it was too long)
+2: CONNECT www.espn.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 01:53:08 2023
+2: Responding "HTTP/1.1 200 OK"
+3: CONNECT dcf.espn.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 01:53:09 2023
+6: CONNECT a.espncdn.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 01:53:09 2023
+3: Responding "HTTP/1.1 200 OK"
+10: CONNECT secure.espncdn.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 01:53:09 2023
+6: Responding "HTTP/1.1 200 OK"
+10: Responding "HTTP/1.1 200 OK"
+11: CONNECT pinpoint.espn.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 01:53:09 2023
+11: Responding "HTTP/1.1 200 OK"
+
+2. Works normally
+
+CONNECT www.google.com:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.google.com:443
+
+0: CONNECT www.google.com:443 HTTP/1.1 from 10.197.66.78 @ Tue Feb 28 02:05:46 2023
+0: Responding "HTTP/1.1 200 OK"
+1: CONNECT www.google.com:443 HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:05:49 2023
+1: Responding "HTTP/1.1 200 OK"
+
+3. Works normally
+
+CONNECT safebrowsing.googleapis.com:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: safebrowsing.googleapis.com:443
+
+0: CONNECT safebrowsing.googleapis.com:443 HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 02:23:06 2023
+0: Responding "HTTP/1.1 200 OK"
+
+4. Works normally
+
+CONNECT en.wikipedia.org:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: en.wikipedia.org:443
+
+0: CONNECT en.wikipedia.org:443 HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 03:27:26 2023
+0: Responding "HTTP/1.1 200 OK"
+
+5. Works normally
+
+CONNECT www.youtube.com:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.youtube.com:443
+
+0: CONNECT www.youtube.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:32:50 2023
+3: CONNECT www.youtube.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:32:50 2023
+1: CONNECT jnn-pa.googleapis.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:32:50 2023
+2: CONNECT static.doubleclick.net:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:32:50 2023
+0: Responding "HTTP/1.1 200 OK"
+3: Responding "HTTP/1.1 200 OK"
+2: Responding "HTTP/1.1 200 OK"
+1: Responding "HTTP/1.1 200 OK"
+3: Tunnel closed
+5: CONNECT www.youtube.com:443 HTTP/1.1 from 127.0.0.1 @ Tue Feb 28 03:32:53 2023
+5: Responding "HTTP/1.1 200 OK"
+4: Responding "HTTP/1.1 400 Bad Request"
+5: Tunnel closed
+6: Responding "HTTP/1.1 400 Bad Request"
+7: Responding "HTTP/1.1 400 Bad Request"
+8: CONNECT i.ytimg.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:19 2023
+8: Responding "HTTP/1.1 200 OK"
+10: CONNECT googleads.g.doubleclick.net:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:19 2023
+10: Responding "HTTP/1.1 200 OK"
+11: CONNECT www.gstatic.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:19 2023
+11: Responding "HTTP/1.1 200 OK"
+13: CONNECT yt3.ggpht.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:19 2023
+12: CONNECT www.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:19 2023
+13: Responding "HTTP/1.1 200 OK"
+12: Responding "HTTP/1.1 200 OK"
+9: Responding "HTTP/1.1 400 Bad Request"
+14: Responding "HTTP/1.1 400 Bad Request"
+15: CONNECT play.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:50 2023
+15: Responding "HTTP/1.1 200 OK"
+16: CONNECT play.google.com:443 HTTP/1.1 from 71.69.186.45 @ Tue Feb 28 03:33:50 2023
+16: Responding "HTTP/1.1 200 OK"
+
+
+**************************** MALFORMED REQUEST Tests:********************
+
+1. Method MUST be one of 8 options: CONNCT method
+
+CONNCT www.youtube.com:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.youtube.com:443
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+Bad Request
+
+2. HTTP MUST be in the firsline: HTTP inccorectly spelled
+
+CONNECT duke.edu:443 HTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: duke.edu:443
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+
+3. There MUST NOT be any white spaces between fieldnames:
+
+CONNECT duke.edu:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+
+Connection: keep-alive
+Host: duke.edu:443
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+Bad Request
+
+4. There MUST NOT be white space between fieldname and colon : User-Agent :
+
+CONNECT www.cnn.com:443 HTTP/1.1
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.cnn.com:443
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+Bad Request
+
+5. Host MUST be included in the header request:
+
+CONNECT en.wikipedia.org:443 HTTP/1.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+6. Check if there the last field ends with \r\n\ :
+
+GET http://www.fifa.com/ HTTP/1.1
+Host: www.fifa.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Content-Length: 13
+
+Bad Request
+
+
