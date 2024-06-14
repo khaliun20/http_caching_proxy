@@ -2,14 +2,14 @@
 
 ### Overview
 
-This project involves developing an HTTP caching proxy as part of the Engineering Robust Server Software coursework. The proxy server forwards requests to the origin server on behalf of the client and caches responses to improve efficiency and performance. The proxy handles multiple concurrent requests, supports GET, POST, and CONNECT methods, and logs detailed information about each request and response.
+This project involves developing an HTTP caching proxy as part of the Robust Server Software class coursework at Duke. The proxy server forwards requests to the origin server on behalf of the client and caches responses to improve efficiency and performance. The proxy handles multiple concurrent requests, supports GET, POST, and CONNECT methods, and logs detailed information about each request and response.
 
 ### Tech Stack
 
 - **Programming Language**: C++
-- **Build System**: CMake
-- **Threading**: POSIX Threads (pthreads)
-- **Networking**: POSIX Sockets
+- **Build System**: GNU Make
+- **Threading**: C++ Standard Library `<thread>`
+- **Networking**: TCP Sockets
 - **Logging**: Custom logging to file
 - **Containers**: Docker
 - **Orchestration**: Docker Compose
