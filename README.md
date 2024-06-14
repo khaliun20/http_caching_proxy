@@ -17,10 +17,15 @@ This project involves developing an HTTP caching proxy as part of the Robust Ser
 ### Features
 
 **HTTP Methods:** Supports GET, POST, and CONNECT methods.
+
 **Caching:** Caches responses for GET requests with 200-OK status. Implements expiration and re-validation rules.
+
 **Concurrency:** Handles multiple concurrent requests using multi-threading. Shared cache synchronized between connections.
+
 **Logging:** Produces a detailed log of all activities in /var/log/erss/proxy.log.
+
 **Robustness:** Handles external failures gracefully, and responds with appropriate error codes for corrupted or malformed requests/responses.
+
 **Docker:** Includes Dockerfile and docker-compose.yml for easy setup and testing.
 
 
