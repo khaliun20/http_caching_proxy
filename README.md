@@ -9,7 +9,7 @@ This project involves developing an HTTP caching proxy as part of the Robust Ser
 - **Programming Language**: C++
 - **Build System**: GNU Make
 - **Threading**: C++ Standard Library `<thread>`
-- **Networking**: TCP Sockets
+- **Networking**: POSIX Sockets API
 - **Logging**: Custom logging to file
 - **Containers**: Docker
 - **Orchestration**: Docker Compose
